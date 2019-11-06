@@ -17,6 +17,8 @@ app.use(bodyParser.json());
 
 app.get("/competencias/resultados", competenciasCtrl.competencia);
 
+app.get("/competencias", competenciasCtrl.cargarCompetencias);
+
 //seteamos el puerto en el cual va a escuchar los pedidos la aplicación
 var puerto = '8080';
 
