@@ -19,6 +19,8 @@ app.get("/competencias/resultados", competenciasCtrl.competencia);
 
 app.get("/competencias", competenciasCtrl.cargarCompetencias);
 
+app.get('/competencias/:id/peliculas', competenciasCtrl.obtenerOpciones);
+
 //seteamos el puerto en el cual va a escuchar los pedidos la aplicación
 var puerto = '8080';
 
