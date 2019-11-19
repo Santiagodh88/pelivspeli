@@ -55,8 +55,30 @@ function queryOpciones(query) {
     return query;
 }
 
+//POST
+
+function votar(req, res) {
+    const idPelicula = req.body["idPelicula"];
+    console.log(req.params.id + " " + idPelicula);
+    let sql = "INSERT INTO voto (id_competencia, id_pelicula)" +
+        "VALUES (" + req.params.id + ", " + idPelicula + ");";
+
+    con.query(sql, (error, result) => {
+        if (error) {
+            console.log("Hubo un error en la consulta", error.message);
+            return res.status(500).send("Hubo un error en la consulta");
+        }
+        return res.status(200).send("Voto agregado correctamente");
+    });
+
+
+}
+
+
+
 module.exports = {
     competencia,
     cargarCompetencias,
-    obtenerOpciones
+    obtenerOpciones,
+    votar
 };
